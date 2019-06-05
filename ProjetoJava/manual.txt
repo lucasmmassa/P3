@@ -1,0 +1,26 @@
+/////////////MANUAL DE USO DO PROGRAMA//////////////
+
+	Ao iniciar, o programa vai pedir a inserção da data e dia da semana pelo usuário para
+que seja possível simular um calendário. Basta inserir seguindo as instruções que aparecerão.
+	
+	Logo após o usuário será dirigido para o menu principal, o qual é um loop que vai rodar até
+ser escolhida a opção exit. O menu é intuitivo, basta escolher uma operação dentre as que são mostradas.
+
+	As funções de adição, remoção e edição das informações dos funcionários também são bastante intuitivas,
+basta seguir as intruções mostradas. As funções de inserção de taxa de serviço e de resultado de vendas também. 
+
+>>>>>OBS: O salário deve ser adicionado com seu valor mensal. Para os funcionários que fazem uso de salário<<<<<
+>>>>>horário, a conversão é feita pelo programa.<<<<<
+
+>>>>>OBS: o registro do funcionário é gerado automaticamente pelo programa. Para conferí-lo basta usar a opção<<<<<
+>>>>>show list. Já o registro no sindicato será colocado pelo usuário caso o funcionário o tenha.<<<<<
+
+							>-------IMPORTANTE-------<
+-> O dia deve ser passado maualmente pelo usuário a partir da operação Closing-Time.
+-> Essa operação também verifica a folha de pagamentos ao final do dia e mostra na tela caso algum tenha sido feito.
+-> Os salários dos funcoinários horistas só serão computados caso o usuário insira as informações de cartão de ponto a partir
+da operação Timecard input. Já os salários dos outros tipos serão computados automaticamente pelo programa.
+-> Na criação de uma nova agenda basta digitar como está na descrição do projeto. O dia deve ser inserido novamente de acordo
+com a opção (se for mensal, digita dia do mês, se for semanal digita o dia da semana de acordo com a instrução mostrada).
+
+Para verificar a funcionalidade das operações basta usar a operação Show list e visualizar as modificações.
