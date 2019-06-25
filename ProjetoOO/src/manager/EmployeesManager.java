@@ -579,25 +579,38 @@ public class EmployeesManager implements EmployeesManagerInterface{
     }
 
     public void undo(){
-        if(undoRedo.undoStack.empty()){
+        if(undoRedo.undoStack.empty() || undoRedo.annualCounterUndo.empty() || undoRedo.counterUndo.empty()){
             return;
         }
         undoRedo.redoStack.push(register);
+        undoRedo.counterRedo.push(employeesCounter);
+        undoRedo.annualCounterRedo.push(employeesAnnualCounter);
         register = undoRedo.undoStack.pop();
+        employeesAnnualCounter = undoRedo.annualCounterUndo.pop();
+        employeesCounter = undoRedo.counterUndo.pop();
     }
 
     public void redo(){
-        if(undoRedo.redoStack.empty()){
+        if(undoRedo.redoStack.empty() || undoRedo.annualCounterRedo.empty() || undoRedo.counterRedo.empty()){
             return;
         }
         copyRegister();
         register = undoRedo.redoStack.pop();
+        employeesAnnualCounter = undoRedo.annualCounterRedo.pop();
+        employeesCounter = undoRedo.counterRedo.pop();
     }
 
     public void emptyRedo(){
         List<Employee> auxiliar = new ArrayList<Employee>();
+        int trash;
         while(!undoRedo.redoStack.empty()){
             auxiliar = undoRedo.redoStack.pop();
+        }
+        while(!undoRedo.annualCounterRedo.empty()){
+            trash = undoRedo.annualCounterRedo.pop();
+        }
+        while(!undoRedo.counterRedo.empty()){
+            trash = undoRedo.counterRedo.pop();
         }
     }
 
@@ -650,6 +663,8 @@ public class EmployeesManager implements EmployeesManagerInterface{
             }
         }
         undoRedo.undoStack.push(copy);
+        undoRedo.counterUndo.push(employeesCounter);
+        undoRedo.annualCounterUndo.push(employeesAnnualCounter);
     }
 
     public void newAgenda() {
