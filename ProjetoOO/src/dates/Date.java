@@ -3,7 +3,7 @@ package dates;
 import java.util.Scanner;
 import utils.ExceptionsHandler;
 
-public class Date implements DateInterface{
+public class Date{
     static Scanner input = new Scanner(System.in);
     ExceptionsHandler handler = new ExceptionsHandler();
     public int day;

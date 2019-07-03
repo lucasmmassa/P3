@@ -8,7 +8,7 @@ import dates.*;
 import utils.ExceptionsHandler;
 import utils.UndoRedo;
 
-public class EmployeesManager implements EmployeesManagerInterface{
+public class EmployeesManager{
     ExceptionsHandler handler = new ExceptionsHandler();
     public Date calendar;
     static Scanner input = new Scanner(System.in);
@@ -797,7 +797,7 @@ public class EmployeesManager implements EmployeesManagerInterface{
     }
 
     public void newMonthly(Employee current, String info) {
-        if(info == "$"){
+        if(info.equals("$")){
             current.agenda.setLastDay(true);
             current.agenda.setMonthly(true);
             current.agenda.setEachTwoWeeks(false);

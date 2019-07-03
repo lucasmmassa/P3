@@ -2,7 +2,7 @@ package employees;
 
 import utils.*;
 
-public class Commissioned extends Employee implements CommissionedInterface{
+public class Commissioned extends Employee{
 
     private double commission;
     public double saleResults;

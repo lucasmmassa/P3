@@ -2,7 +2,7 @@ package employees;
 
 import utils.*;
 
-public class Hourly extends Employee implements HourlyInterface{
+public class Hourly extends Employee{
 
     public Timecard timecard = new Timecard();
     private double hourSalary;

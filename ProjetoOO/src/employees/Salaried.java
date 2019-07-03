@@ -1,6 +1,6 @@
 package employees;
 
-public class Salaried extends Employee implements SalariedInterface{
+public class Salaried extends Employee{
 
     public Salaried(){
         this.defaultPayday = true;

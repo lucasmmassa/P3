@@ -3,7 +3,7 @@ package utils;
 import java.util.Scanner;
 import utils.ExceptionsHandler;
 
-public class Timecard implements TimecardInterface{
+public class Timecard{
 
     Scanner input = new Scanner(System.in);
     ExceptionsHandler handler = new ExceptionsHandler();
