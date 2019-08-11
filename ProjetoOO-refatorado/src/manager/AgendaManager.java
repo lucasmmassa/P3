@@ -7,8 +7,8 @@ public class AgendaManager {
     Scanner input = new Scanner(System.in);
 
     public void newAgenda() {
-        String edited = EmployeesManager.nameInput();
-        Employee auxiliar = EmployeesManager.findEmployee(edited);
+        String edited = EmployeesData.nameInput();
+        Employee auxiliar = EmployeesData.findEmployee(edited);
 
         if(auxiliar == null){
             System.out.println("Sorry, there is no employee with the name typed.");
@@ -24,7 +24,7 @@ public class AgendaManager {
             String[] info = agenda.split(" ");
             newWeekly(auxiliar,info[2]);
         }
-        else if(agenda.contains("semana 2")){
+        else if(agenda.contains("semanal 2")){
             String[] info = agenda.split(" ");
             newEachTwoWeeks(auxiliar,info[2]);
         }
@@ -61,7 +61,7 @@ public class AgendaManager {
             current.agenda.setWeekly(false);
         }
         else{
-            int day = EmployeesManager.handler.toInteger(info);
+            int day = EmployeesData.handler.toInteger(info);
             if(1 <= day && day <= 28){
                 current.agenda.setMonthDay(day);
                 current.agenda.setLastDay(false);

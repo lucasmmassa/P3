@@ -6,14 +6,14 @@ public class SwitchManager {
 
     public static void typeSwitch(Employee original){
         System.out.println("Switching worker type.");
-        EmployeesManager.emptyRedo();
-        EmployeesManager.copyRegister();
+        EmployeesData.emptyRedo();
+        EmployeesData.copyRegister();
         System.out.println("Please type the new worker type:");
         System.out.println("1-Hourly 2-Salaried 3-Commissioned");
-        int type = EmployeesManager.handler.integerInput();
+        int type = EmployeesData.handler.integerInput();
         while(type < 1 || type > 3){
             System.out.println("Please choose one of the options above.");
-            type = EmployeesManager.handler.integerInput();
+            type = EmployeesData.handler.integerInput();
         }
 
         switch(type){
@@ -35,8 +35,8 @@ public class SwitchManager {
         }
         else{
             Hourly switched = new Hourly(original);
-            EmployeesManager.register.remove(original);
-            EmployeesManager.register.add(switched);
+            EmployeesData.register.remove(original);
+            EmployeesData.register.add(switched);
         }
     }
 
@@ -46,8 +46,8 @@ public class SwitchManager {
         }
         else{
             Salaried switched = new Salaried(original);
-            EmployeesManager.register.remove(original);
-            EmployeesManager.register.add(switched);
+            EmployeesData.register.remove(original);
+            EmployeesData.register.add(switched);
         }
     }
 
@@ -58,14 +58,14 @@ public class SwitchManager {
         else{
             Commissioned switched = new Commissioned(original);
             System.out.println("Please type the employee's commission:");
-            double newCommission = EmployeesManager.handler.doubleInput();
+            double newCommission = EmployeesData.handler.doubleInput();
             while(newCommission < 0 || newCommission >1){
                 System.out.println("Please type a valid number.");
-                newCommission = EmployeesManager.handler.doubleInput();
+                newCommission = EmployeesData.handler.doubleInput();
             }
             switched.setCommission(newCommission);
-            EmployeesManager.register.remove(original);
-            EmployeesManager.register.add(switched);
+            EmployeesData.register.remove(original);
+            EmployeesData.register.add(switched);
         }
     }
 }

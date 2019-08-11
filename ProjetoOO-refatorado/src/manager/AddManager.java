@@ -5,14 +5,14 @@ import employees.*;
 public class AddManager{
 
     public void addEmployee(){
-        EmployeesManager.emptyRedo();
-        EmployeesManager.copyRegister();
+        EmployeesData.emptyRedo();
+        EmployeesData.copyRegister();
         System.out.println("Please choose the worker type:");
         System.out.println("1-Hourly 2-Salaried 3-Commissioned");
-        int type = EmployeesManager.handler.integerInput();
+        int type = EmployeesData.handler.integerInput();
         while(type < 1 || type > 3){
             System.out.println("Please choose one of the options above.");
-            type = EmployeesManager.handler.integerInput();
+            type = EmployeesData.handler.integerInput();
         }
         switch(type){
             case 1:
@@ -25,29 +25,29 @@ public class AddManager{
                 addCommissioned();
                 break;
         }
-        EmployeesManager.employeesAnnualCounter ++;
-        EmployeesManager.employeesCounter ++;
+        EmployeesData.employeesAnnualCounter ++;
+        EmployeesData.employeesCounter ++;
     }
 
     public void addHourly(){
-        int registerNumber = (EmployeesManager.calendar.year*1000)+EmployeesManager.employeesAnnualCounter;
+        int registerNumber = (EmployeesData.calendar.year*1000)+ EmployeesData.employeesAnnualCounter;
         Employee newOne = new Hourly();
         newOne.setRegisterNumber(registerNumber);
-        EmployeesManager.register.add(newOne);
+        EmployeesData.register.add(newOne);
     }
 
     public void addSalaried(){
-        int registerNumber = (EmployeesManager.calendar.year*1000)+EmployeesManager.employeesAnnualCounter;
+        int registerNumber = (EmployeesData.calendar.year*1000)+ EmployeesData.employeesAnnualCounter;
         Employee newOne = new Salaried();
         newOne.setRegisterNumber(registerNumber);
-        EmployeesManager.register.add(newOne);
+        EmployeesData.register.add(newOne);
     }
 
     public void addCommissioned(){
-        int registerNumber = (EmployeesManager.calendar.year*1000)+EmployeesManager.employeesAnnualCounter;
+        int registerNumber = (EmployeesData.calendar.year*1000)+ EmployeesData.employeesAnnualCounter;
         Employee newOne = new Commissioned();
         newOne.setRegisterNumber(registerNumber);
-        EmployeesManager.register.add(newOne);
+        EmployeesData.register.add(newOne);
     }
 
 }

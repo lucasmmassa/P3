@@ -1,6 +1,20 @@
 package utils;
 
-public class Agenda {
+public class Agenda{
+
+    public Agenda(){
+
+    }
+
+    public Agenda(Agenda original){
+        this.eachTwoWeeks = original.eachTwoWeeks;
+        this.lastDay = original.lastDay;
+        this.monthDay = original.monthDay;
+        this.monthly = original.monthly;
+        this.weekDay = original.weekDay;
+        this.weekly = original.weekly;
+        this.weekToBePaid = original.weekToBePaid;
+    }
 
     private boolean weekly;
     private boolean eachTwoWeeks;   //variables used to identify the payment agenda type.
@@ -66,5 +80,10 @@ public class Agenda {
 
     public void setWeekToBePaid(boolean weekToBePaid) {
         this.weekToBePaid = weekToBePaid;
+    }
+
+    public Agenda clone(){
+        Agenda clone = new Agenda(this);
+        return clone;
     }
 }

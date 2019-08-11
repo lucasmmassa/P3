@@ -3,6 +3,16 @@ package utils;
 import java.util.Scanner;
 
 public class Timecard{
+    public Timecard(){
+
+    }
+
+    public Timecard(Timecard original){
+        this.arrivalHour = original.arrivalHour;
+        this.arrivalMinute = original.arrivalMinute;
+        this.exitHour = original.exitHour;
+        this.exitMinute = original.exitMinute;
+    }
 
     Scanner input = new Scanner(System.in);
     ExceptionsHandler handler = new ExceptionsHandler();
@@ -95,5 +105,10 @@ public class Timecard{
             minutes = handler.integerInput();
         }
         this.exitMinute = minutes;
+    }
+
+    public Timecard clone(){
+        Timecard clone = new Timecard(this);
+        return clone;
     }
 }

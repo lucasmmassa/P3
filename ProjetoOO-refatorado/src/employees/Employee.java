@@ -10,7 +10,6 @@ public class Employee{
     ExceptionsHandler handler = new ExceptionsHandler();
     static String trash;
     public Agenda agenda = new Agenda();
-    protected boolean defaultPayday;
     protected double toReceive;
     protected String name;
     protected String adress;
@@ -117,11 +116,6 @@ public class Employee{
 
     public double getToReceive(){
         return this.toReceive;
-    }
-
-
-    public boolean getDefaultValue(){
-        return this.defaultPayday;
     }
 
     public double getServiceTax() {

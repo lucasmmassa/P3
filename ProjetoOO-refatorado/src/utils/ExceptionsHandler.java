@@ -1,5 +1,7 @@
 package utils;
 
+import main.*;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -43,6 +45,26 @@ public class ExceptionsHandler {
                 System.out.println("The string could not be converted to an integer.");
                 System.out.println("Invalid agenda.");
                 return -1;
+            }
+        }
+    }
+
+    public MainCommand getClassByName(){
+        while(true){
+            String option = input.nextLine();
+            option = "main." + option;
+            try {
+                Class clazz = Class.forName(option);
+                return (MainCommand) clazz.newInstance();
+            }
+            catch (ClassNotFoundException e) {
+                System.out.println("Invalid entry. Please type again.");
+            }
+            catch (InstantiationException e) {
+                System.out.println("Invalid entry. Please type again.");
+            }
+            catch (IllegalAccessException e) {
+                System.out.println("Invalid entry. Please type again.");
             }
         }
     }

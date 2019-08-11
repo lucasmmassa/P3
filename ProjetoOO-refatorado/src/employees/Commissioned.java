@@ -2,14 +2,13 @@ package employees;
 
 import utils.*;
 
-public class Commissioned extends Employee{
+public class Commissioned extends Employee implements Prototype{
 
     private double commission;
     public double saleResults;
     
 
     public Commissioned(){
-        this.defaultPayday = true;
         this.toReceive = 0;
         standardCommissionedAgenda();
         this.saleResults = 0;
@@ -81,7 +80,6 @@ public class Commissioned extends Employee{
 
     public Commissioned(Employee original){
         standardCommissionedAgenda();
-        this.defaultPayday = original.getDefaultValue();
         this.name = original.getName();
         this.adress = original.getAdress();
         this.salary = original.getSalary();
@@ -96,6 +94,22 @@ public class Commissioned extends Employee{
         }
 
         this.saleResults = 0;
+    }
+
+    public Commissioned(Commissioned original, int flag){ // flag has no especific function, used only to change the constructor's signature.
+        this.name = original.name;
+        this.adress = original.adress;
+        this.salary = original.salary;
+        this.toReceive = original.toReceive;
+        this.registerNumber = original.registerNumber;
+        this.paymentMethod = original.paymentMethod;
+        this.syndicated = original.syndicated;
+        this.syndicateRegister = original.syndicateRegister;
+        this.unionFee = original.unionFee;
+        this.serviceTax = original.serviceTax;
+        this.saleResults = original.saleResults;
+        this.commission = original.commission;
+        this.agenda = original.agenda.clone();
     }
 
     public void setCommission(double commission){
@@ -119,5 +133,10 @@ public class Commissioned extends Employee{
     public void standardCommissionedAgenda(){
         this.agenda.setEachTwoWeeks(true);
         this.agenda.setWeekDay(6);
+    }
+
+    public Employee clone(){
+        Employee clone = new Commissioned(this,0);
+        return clone;
     }
 }

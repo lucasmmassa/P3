@@ -6,10 +6,10 @@ import employees.Employee;
 public class SaleResultManager {
 
     public void saleResult() {
-        EmployeesManager.emptyRedo();
-        EmployeesManager.copyRegister();
-        String edited = EmployeesManager.nameInput();
-        Employee auxiliar = EmployeesManager.findEmployee(edited);
+        EmployeesData.emptyRedo();
+        EmployeesData.copyRegister();
+        String edited = EmployeesData.nameInput();
+        Employee auxiliar = EmployeesData.findEmployee(edited);
 
         if(auxiliar == null){
             System.out.println("Sorry, there is no employee with the name typed.");

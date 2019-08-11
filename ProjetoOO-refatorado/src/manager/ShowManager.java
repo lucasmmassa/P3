@@ -5,7 +5,7 @@ import employees.*;
 public class ShowManager {
 
     public void showList(){
-        for(Employee current : EmployeesManager.register){
+        for(Employee current : EmployeesData.register){
             System.out.println("Name: " + current.getName() + ".");
             System.out.println("Adress: " + current.getAdress() + ".");
             System.out.println("Register number: " + current.getRegisterNumber() + ".");

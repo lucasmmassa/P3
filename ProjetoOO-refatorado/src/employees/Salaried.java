@@ -1,9 +1,10 @@
 package employees;
 
-public class Salaried extends Employee{
+import main.Sale;
+
+public class Salaried extends Employee implements Prototype{
 
     public Salaried(){
-        this.defaultPayday = true;
         this.toReceive = 0;
         standardSalariedAgenda();
 
@@ -66,7 +67,6 @@ public class Salaried extends Employee{
 
     public Salaried(Employee original){
         standardSalariedAgenda();
-        this.defaultPayday = original.getDefaultValue();
         this.name = original.getName();
         this.adress = original.getAdress();
         this.salary = original.getSalary();
@@ -81,8 +81,27 @@ public class Salaried extends Employee{
         }
     }
 
+    public Salaried(Salaried original, int flag){// flag has no especific function, used only to change the constructor's signature.
+        this.name = original.name;
+        this.adress = original.adress;
+        this.salary = original.salary;
+        this.toReceive = original.toReceive;
+        this.registerNumber = original.registerNumber;
+        this.paymentMethod = original.paymentMethod;
+        this.syndicated = original.syndicated;
+        this.syndicateRegister = original.syndicateRegister;
+        this.unionFee = original.unionFee;
+        this.serviceTax = original.serviceTax;
+        this.agenda = original.agenda.clone();
+    }
+
     public void standardSalariedAgenda(){
         this.agenda.setMonthly(true);
         this.agenda.setLastDay(true);
+    }
+
+    public Employee clone(){
+        Employee clone = new Salaried(this,0);
+        return clone;
     }
 }
