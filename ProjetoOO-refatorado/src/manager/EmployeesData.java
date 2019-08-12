@@ -86,18 +86,8 @@ public class EmployeesData {
         List<Employee> copy = new ArrayList<Employee>();
 
         for(Employee current : register){
-            if(current instanceof  Hourly){
-                Employee auxiliar = ((Hourly) current).clone();
-                copy.add(auxiliar);
-            }
-            else if(current instanceof  Salaried){
-                Employee auxiliar = ((Salaried)current).clone();
-                copy.add(auxiliar);
-            }
-            else if(current instanceof Commissioned){
-                Employee auxiliar = ((Commissioned)current).clone();
-                copy.add(auxiliar);
-            }
+            Employee auxiliar = ((Prototype)current).clone();
+            copy.add(auxiliar);
         }
 
         undoRedo.undoStack.push(copy);
