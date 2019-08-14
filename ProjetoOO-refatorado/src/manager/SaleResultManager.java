@@ -4,12 +4,13 @@ import employees.Commissioned;
 import employees.Employee;
 
 public class SaleResultManager {
+    EmployeesData data = EmployeesData.getSingleInstance();
 
     public void saleResult() {
-        EmployeesData.emptyRedo();
-        EmployeesData.copyRegister();
-        String edited = EmployeesData.nameInput();
-        Employee auxiliar = EmployeesData.findEmployee(edited);
+        data.emptyRedo();
+        data.copyRegister();
+        String edited = data.nameInput();
+        Employee auxiliar = data.findEmployee(edited);
 
         if(auxiliar == null){
             System.out.println("Sorry, there is no employee with the name typed.");

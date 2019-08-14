@@ -4,13 +4,14 @@ import employees.*;
 import java.util.Scanner;
 
 public class EditManager {
+    EmployeesData data = EmployeesData.getSingleInstance();
 
     public void editEmployee(){
         Scanner input = new Scanner(System.in);
-        EmployeesData.emptyRedo();
-        EmployeesData.copyRegister();
-        String edited = EmployeesData.nameInput();
-        Employee auxiliar = EmployeesData.findEmployee(edited);
+        data.emptyRedo();
+        data.copyRegister();
+        String edited = data.nameInput();
+        Employee auxiliar = data.findEmployee(edited);
         if(auxiliar == null){
             System.out.println("Sorry, there is no employee with the name typed.");
             return;
@@ -28,10 +29,10 @@ public class EditManager {
         System.out.println("9 -> Union fee.");
         System.out.println("10 -> Payment method.");
 
-        int choice = EmployeesData.handler.integerInput();
+        int choice = data.handler.integerInput();
         while(choice < 1 || choice > 10){
             System.out.println("Please choose one of the options above.");
-            choice = EmployeesData.handler.integerInput();
+            choice = data.handler.integerInput();
         }
 
         switch(choice){
@@ -60,10 +61,10 @@ public class EditManager {
 
             case 3:
                 System.out.println("Please type the employee's new register number:");
-                int newRegister = EmployeesData.handler.integerInput();
+                int newRegister = data.handler.integerInput();
                 while(newRegister < 0){
                     System.out.println("Please type a valid number.");
-                    newRegister = EmployeesData.handler.integerInput();
+                    newRegister = data.handler.integerInput();
                 }
                 auxiliar.setRegisterNumber(newRegister);
                 System.out.println("");
@@ -71,10 +72,10 @@ public class EditManager {
 
             case 4:
                 System.out.println("Please enter the employee's new salary:");
-                double newSalary = EmployeesData.handler.doubleInput();
+                double newSalary = data.handler.doubleInput();
                 while(newSalary < 998){
                     System.out.println("Please type a value that is equal or bigger than the minimum wage.");
-                    newSalary = EmployeesData.handler.doubleInput();
+                    newSalary = data.handler.doubleInput();
                 }
                 auxiliar.setSalary(newSalary);
                 if(auxiliar instanceof Hourly){
@@ -86,10 +87,10 @@ public class EditManager {
             case 5:
                 if(auxiliar instanceof Commissioned){
                     System.out.println("Please type the new commission: (value between 0 and 1)");
-                    double commission = EmployeesData.handler.doubleInput();
+                    double commission = data.handler.doubleInput();
                     while(commission < 0 || commission > 1){
                         System.out.println("Please type a valid number.");
-                        commission = EmployeesData.handler.doubleInput();
+                        commission = data.handler.doubleInput();
                     }
                     ((Commissioned)auxiliar).setCommission(commission);
                 }
@@ -105,10 +106,10 @@ public class EditManager {
                 System.out.println("");
                 if(!before && auxiliar.getSyndicated()){
                     System.out.println("Please type the new syndicate register rumber:");
-                    int newSyndicate = EmployeesData.handler.integerInput();
+                    int newSyndicate = data.handler.integerInput();
                     while(newSyndicate < 0){
                         System.out.println("Please type a valid number.");
-                        newSyndicate = EmployeesData.handler.integerInput();
+                        newSyndicate = data.handler.integerInput();
                     }
                     auxiliar.setSyndicateRegister(newSyndicate);
                     System.out.println("");
@@ -118,10 +119,10 @@ public class EditManager {
             case 7:
                 if(auxiliar.getSyndicated()){
                     System.out.println("Please type the new syndicate register rumber:");
-                    int newSyndicate = EmployeesData.handler.integerInput();
+                    int newSyndicate = data.handler.integerInput();
                     while(newSyndicate < 0){
                         System.out.println("Please type a valid number.");
-                        newSyndicate = EmployeesData.handler.integerInput();
+                        newSyndicate = data.handler.integerInput();
                     }
                     auxiliar.setSyndicateRegister(newSyndicate);
                     System.out.println("");
@@ -132,16 +133,17 @@ public class EditManager {
                 break;
 
             case 8:
-                SwitchManager.typeSwitch(auxiliar);
+                SwitchManager swticher = new SwitchManager();
+                swticher.typeSwitch(auxiliar);
                 break;
 
             case 9:
                 if(auxiliar.getSyndicated()){
                     System.out.println("Please type the new union fee: (value between 0 and 1)");
-                    double newFee = EmployeesData.handler.doubleInput();
+                    double newFee = data.handler.doubleInput();
                     while(newFee < 0 || newFee > 1){
                         System.out.println("Please type a valid number.");
-                        newFee = EmployeesData.handler.doubleInput();
+                        newFee = data.handler.doubleInput();
                     }
                     System.out.println("");
                 }

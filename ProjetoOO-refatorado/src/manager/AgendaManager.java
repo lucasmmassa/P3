@@ -5,10 +5,11 @@ import java.util.Scanner;
 
 public class AgendaManager {
     Scanner input = new Scanner(System.in);
+    EmployeesData data = EmployeesData.getSingleInstance();
 
     public void newAgenda() {
-        String edited = EmployeesData.nameInput();
-        Employee auxiliar = EmployeesData.findEmployee(edited);
+        String edited = data.nameInput();
+        Employee auxiliar = data.findEmployee(edited);
 
         if(auxiliar == null){
             System.out.println("Sorry, there is no employee with the name typed.");
@@ -61,7 +62,7 @@ public class AgendaManager {
             current.agenda.setWeekly(false);
         }
         else{
-            int day = EmployeesData.handler.toInteger(info);
+            int day = data.handler.toInteger(info);
             if(1 <= day && day <= 28){
                 current.agenda.setMonthDay(day);
                 current.agenda.setLastDay(false);

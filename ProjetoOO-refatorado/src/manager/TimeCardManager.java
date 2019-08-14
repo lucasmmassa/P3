@@ -4,17 +4,18 @@ import employees.Employee;
 import employees.Hourly;
 
 public class TimeCardManager {
+    EmployeesData data = EmployeesData.getSingleInstance();
 
     public void timeCard() {
-        EmployeesData.emptyRedo();
-        EmployeesData.copyRegister();
-        String edited = EmployeesData.nameInput();
-        Employee auxiliar = EmployeesData.findEmployee(edited);
+        data.emptyRedo();
+        data.copyRegister();
+        String edited = data.nameInput();
+        Employee auxiliar = data.findEmployee(edited);
         if(auxiliar == null){
             System.out.println("Sorry, there is no employee with the name typed.");
             return;
         }
-        int weekDay = EmployeesData.calendar.weekday;
+        int weekDay = data.calendar.weekday;
 
         if(weekDay == 1){
             System.out.println("It is not allowed to work on sundays.");

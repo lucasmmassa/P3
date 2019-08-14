@@ -17,7 +17,7 @@ public class Main{
         actions = new Actions();
         rolled = false;
         run = true;
-        manager = new EmployeesData();
+        manager = EmployeesData.getSingleInstance();
 
         while(run){
             System.out.println("$-------PAYROLL SYSTEM-------$        " + manager.calendar.day + "/" + manager.calendar.month + "/" + manager.calendar.year);

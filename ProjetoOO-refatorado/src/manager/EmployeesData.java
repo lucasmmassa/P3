@@ -9,6 +9,8 @@ import utils.ExceptionsHandler;
 import utils.UndoRedo;
 
 public class EmployeesData {
+    private static EmployeesData singleInstance = null;
+
     static ExceptionsHandler handler = new ExceptionsHandler();
     public static Date calendar;
     static Scanner input = new Scanner(System.in);
@@ -19,12 +21,19 @@ public class EmployeesData {
 
     public static List<Employee> register;
 
-    public EmployeesData(){
+    private EmployeesData(){
         employeesAnnualCounter = 0;
         employeesCounter = 0;
         register = new ArrayList<Employee>();
         calendar = new Date();
         undoRedo = new UndoRedo();
+    }
+
+    public static EmployeesData getSingleInstance(){
+        if(singleInstance == null){
+            singleInstance = new EmployeesData();
+        }
+        return singleInstance;
     }
 
     public static Employee findEmployee(String name){

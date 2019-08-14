@@ -3,9 +3,10 @@ package manager;
 import employees.*;
 
 public class ShowManager {
+    EmployeesData data = EmployeesData.getSingleInstance();
 
     public void showList(){
-        for(Employee current : EmployeesData.register){
+        for(Employee current : data.register){
             System.out.println("Name: " + current.getName() + ".");
             System.out.println("Adress: " + current.getAdress() + ".");
             System.out.println("Register number: " + current.getRegisterNumber() + ".");
