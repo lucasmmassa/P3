@@ -36,7 +36,7 @@ Remove, Sale, Service, Show, Timecard, Undo. (packge main)
 
 2 - PROTOTYPE:
 Foi utilizado para criar clones dos funcionarios para serem adicionados nas
-pilhas de undo e repetido.
+pilhas de undo e redo.
 Os componentes do padrao sao implementados pelas seguintes classes:
 - Client: EmployessData. (package manager)
 - Interface: Prototype. (package employess)
