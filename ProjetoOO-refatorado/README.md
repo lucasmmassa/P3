@@ -1,4 +1,4 @@
-#INSTRUCOES DE USO
+#INSTRUCOES DE USO  
 O funcionamento desse programa é bastante intuitivo, basta seguir as instrucoes que aparecem na tela.  
 Caso haja duvida, bsta checar o documento que explica o funcionamento do projeto OO no github, pois  
 o funcionamento é o mesmo, com uma excecao.  
@@ -9,9 +9,9 @@ eram dadas atraves de numeros. Devido ao refatoramento com o padrao command, ess
 Exemplo: caso queira adicionar um empregado, basta digita 'Add'. As strings de cada operacao sao mostradas na tela.  
                     
                       
-#MODIFICAÇÕES REALIZADAS NO REFATORAMENTO:
+#MODIFICAÇÕES REALIZADAS NO REFATORAMENTO:  
 
-##TRATAMENTO DE CÓDIGO DUPLICADO:   
+##TRATAMENTO DE CÓDIGO DUPLICADO:     
 Em algumas classes, havia bstante código repetido.  
 Com isso, foram criados metodos que sao chamados nas ocasioes onde antes estava o codigo repetido.  
 
