@@ -15,7 +15,7 @@ Exemplo: caso queira adicionar um empregado, basta digita 'Add'. As strings de c
 Em algumas classes, havia bstante código repetido.  
 Com isso, foram criados metodos que sao chamados nas ocasioes onde antes estava o codigo repetido.  
 
-##TRATAMENTO DE CLASSE DESNECESSARIAMENTE GRANDE:  
+## TRATAMENTO DE CLASSE DESNECESSARIAMENTE GRANDE:  
 Anteriormente havia uma unica classe que lidava com todas as operacoes, chamada de EmployessManager.  
 Ela foi dividida em varias classes de tamanaho menor, tendo agora uma classe manager para cada operacao.  
 Essas classes fazem alteracoes no Array List que armazena os empregados na classe EmployeesData por meio  
